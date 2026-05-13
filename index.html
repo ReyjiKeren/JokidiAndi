@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joki di Andi – Jasa Joki Tugas Cepat, Aman & Profesional</title>
+    <meta name="description"
+        content="Joki di Andi – Solusi tugas numpuk dengan pengerjaan cepat, revisi sampai puas, dan privasi terjamin. Makalah, PPT, Coding, Desain, Jurnal, dan lainnya." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#F4FBDA',
+                            100: '#E8F5BD',
+                            200: '#C7EABB',
+                            300: '#A8D99A',
+                            400: '#8BC87A',
+                        },
+                        accent: {
+                            DEFAULT: '#84B179',
+                            dark: '#5F8A55',
+                            light: '#A8D194',
+                        },
+                        ink: {
+                            DEFAULT: '#2B2B2B',
+                            muted: '#4A5A48',
+                            subtle: '#7A8F78',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #E8F5BD;
+            color: #2B2B2B;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #84B179;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .card-hover {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-primary {
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #5F8A55;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(132, 177, 121, 0.40);
+        }
+
+        .btn-outline {
+            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: #84B179;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        #hamburger-menu.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        #hamburger-menu.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #hamburger-menu.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        #hamburger-menu span {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #mobile-menu {
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .stat-item {
+            border-right: 1px solid #A8D99A;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- ======================== NAVBAR ======================== -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 bg-cream-100/95 backdrop-blur-sm border-b border-cream-300 transition-shadow duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#beranda" class="flex items-center gap-2 group">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-sm group-hover:bg-accent-dark transition-colors duration-200">
+                        A</div>
+                    <span class="font-bold text-lg text-ink">Joki di <span class="text-accent">Andi</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-7">
+                    <a href="#beranda"
+                        class="nav-link text-sm font-medium text-ink-muted hover:text-ink transition-colors duration-200">Beranda</a>
+                    <a href="#layanan"
+                        class="nav-link text-sm font-medium text-ink-muted hover:text-ink transition-colors duration-200">Layanan</a>
+                    <a href="#kontak"
+                        class="nav-link text-sm font-medium text-ink-muted hover:text-ink transition-colors duration-200">Kontak</a>
+                </div>
+
+                <!-- Desktop CTA -->
+                <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
+                    class="hidden md:inline-flex items-center gap-2 btn-primary bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Order Sekarang
+                </a>
+
+                <!-- Hamburger -->
+                <button id="hamburger-menu"
+                    class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-cream-200 transition-colors duration-200"
+                    aria-label="Toggle menu">
+                    <span class="block w-5 h-0.5 bg-ink rounded-full"></span>
+                    <span class="block w-5 h-0.5 bg-ink rounded-full"></span>
+                    <span class="block w-5 h-0.5 bg-ink rounded-full"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu">
+                <div class="pb-4 pt-1 flex flex-col gap-1">
+                    <a href="#beranda"
+                        class="mobile-link px-3 py-2.5 rounded-lg text-sm font-medium text-ink-muted hover:text-ink hover:bg-cream-200 transition-colors duration-200">Beranda</a>
+                    <a href="#layanan"
+                        class="mobile-link px-3 py-2.5 rounded-lg text-sm font-medium text-ink-muted hover:text-ink hover:bg-cream-200 transition-colors duration-200">Layanan</a>
+                    <a href="#kontak"
+                        class="mobile-link px-3 py-2.5 rounded-lg text-sm font-medium text-ink-muted hover:text-ink hover:bg-cream-200 transition-colors duration-200">Kontak</a>
+                    <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
+                        class="mt-2 btn-primary bg-accent text-white text-sm font-semibold px-5 py-3 rounded-full text-center">Order
+                        Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======================== HERO ======================== -->
+    <section id="beranda" class="relative overflow-hidden" style="min-height: 560px;">
+
+        <!-- Background: full-width photo -->
+        <div class="absolute inset-0 z-0" style="top: 64px;">
+            <img src="hero-image.jpg" alt="Workspace Joki di Andi – Laptop, mug, buku, dan tanaman di meja kerja"
+                class="w-full h-full object-cover" style="object-position: center 25%;" />
+            <!-- Gradient: cream solid on left, fades to transparent on right -->
+            <div class="absolute inset-0"
+                style="background: linear-gradient(105deg, #E8F5BD 30%, #E8F5BDf2 42%, #E8F5BDbb 55%, #E8F5BD44 66%, transparent 78%);">
+            </div>
+            <!-- Bottom fade to match next section -->
+            <div class="absolute bottom-0 left-0 right-0"
+                style="height: 80px; background: linear-gradient(to top, #E8F5BD, transparent);"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+            style="padding-top: 120px; padding-bottom: 56px; min-height: 560px; display: flex; flex-direction: column; justify-content: center;">
+
+            <!-- Text block (left ~50%) -->
+            <div class="w-full max-w-[480px]">
+
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 bg-cream-200/90 text-accent text-xs font-semibold px-3 py-1.5 rounded-full mb-5 backdrop-blur-sm">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    Joki Tugas Terpercaya &amp; Profesional
+                </div>
+
+                <!-- Heading -->
+                <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4 text-ink">
+                    Tugas numpuk?<br />
+                    <span class="text-accent">Serahin aja ke Andi.</span>
+                </h1>
+
+                <!-- Sub -->
+                <p class="text-ink-muted text-sm sm:text-base leading-relaxed mb-8 max-w-sm">
+                    Joki di Andi siap membantu semua tugasmu dengan hasil berkualitas, tepat waktu, dan pastinya amanah.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-row gap-3 flex-wrap">
+                    <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
+                        class="btn-primary bg-accent text-white font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2 text-sm shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Order Sekarang
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feature pills — inside section, bottom -->
+            <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-5 w-full max-w-lg">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <span class="text-xs sm:text-sm font-semibold text-ink">Pengerjaan Cepat</span>
+                </div>
+                <div class="hidden sm:block w-px h-5 bg-ink/20 self-center"></div>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </div>
+                    <span class="text-xs sm:text-sm font-semibold text-ink">Revisi Sampai Puas</span>
+                </div>
+                <div class="hidden sm:block w-px h-5 bg-ink/20 self-center"></div>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <span class="text-xs sm:text-sm font-semibold text-ink">Privasi Terjamin</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ======================== LAYANAN ======================== -->
+    <section id="layanan" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-cream-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">✦ Layanan Kami</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-ink mt-2 mb-3">Semua Tugas, Semua Bisa</h2>
+                <p class="text-ink-muted max-w-xl mx-auto text-sm sm:text-base">Berbagai jenis tugas akademik kami
+                    kerjakan dengan profesional dan penuh tanggung jawab.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Makalah -->
+                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                    <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">Makalah</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">Makalah, esai, paper, artikel, dan laporan
+                        akademik berkualitas.</p>
+                </div>
+                <!-- PPT -->
+                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                    <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">PPT / Presentasi</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">PowerPoint presentasi keren, profesional, dan siap
+                        tampil.</p>
+                </div>
+                <!-- Coding -->
+                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                    <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">Coding</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">Tugas pemrograman, script, web, android, dan
+                        lainnya.</p>
+                </div>
+                <!-- Desain -->
+                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                    <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">Desain</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">Desain grafis, poster, infografis, dan kebutuhan
+                        desain.</p>
+                </div>
+                <!-- Jurnal -->
+                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                    <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">Jurnal</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">Pembuatan jurnal, review jurnal, dan referensi
+                        ilmiah.</p>
+                </div>
+                <!-- Lainnya -->
+                <div class="card-hover bg-cream-200 rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                    <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">Lainnya</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">Tugas lainnya bisa didiskusikan terlebih dahulu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
+                    class="btn-primary inline-flex items-center gap-2 bg-accent text-white font-semibold px-7 py-3 rounded-full text-sm">
+                    Lihat Semua Layanan
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== STATISTIK ======================== -->
+    <section id="harga" class="py-14 px-4 sm:px-6 lg:px-8 bg-cream-100">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-cream-200 rounded-3xl px-6 py-10 shadow-sm border border-cream-300">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y-0">
+                    <div class="text-center px-4 py-2 stat-item">
+                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="font-bold text-ink text-sm">Tepat Deadline</div>
+                        <div class="text-xs text-ink-subtle mt-0.5">100% Tepat Waktu</div>
+                    </div>
+                    <div class="text-center px-4 py-2 stat-item">
+                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="font-bold text-ink text-sm">Gratis Revisi</div>
+                        <div class="text-xs text-ink-subtle mt-0.5">Revisi Berkali-kali</div>
+                    </div>
+                    <div class="text-center px-4 py-2 stat-item">
+                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="font-bold text-ink text-sm">Fast Respon</div>
+                        <div class="text-xs text-ink-subtle mt-0.5">Chat Dibalas Cepat</div>
+                    </div>
+                    <div class="text-center px-4 py-2">
+                        <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="font-bold text-ink text-sm">Privasi Aman</div>
+                        <div class="text-xs text-ink-subtle mt-0.5">Data Terjamin 100%</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================== CTA WHATSAPP ======================== -->
+    <section id="kontak" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-accent rounded-3xl px-8 py-12 md:py-16 text-center shadow-lg relative overflow-hidden">
+                <!-- Decorative -->
+                <div
+                    class="absolute top-0 left-0 w-48 h-48 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/4 translate-y-1/4 pointer-events-none">
+                </div>
+
+                <span class="text-amber-200 text-xs font-semibold tracking-wider uppercase mb-4 block">⏰ Jangan Tunda
+                    Lagi</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug mb-4">
+                    Deadline mepet? Tenang,<br />
+                    <span class="text-amber-200">Joki di Andi siap bantu.</span>
+                </h2>
+                <p class="text-white/80 text-sm sm:text-base mb-8 max-w-md mx-auto">Konsultasi gratis, chat sekarang
+                    juga. Kami respons cepat dan siap bantu tugasmu selesai tepat waktu.</p>
+                <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
+                    class="inline-flex items-center gap-3 bg-white text-accent font-bold px-8 py-4 rounded-full text-base sm:text-lg shadow-lg hover:bg-cream-100 hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
+                    Order via Google Form
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="bg-cream-200 border-t border-cream-300 py-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div class="sm:col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-sm">
+                            A</div>
+                        <span class="font-bold text-lg text-ink">Joki di <span class="text-accent">Andi</span></span>
+                    </div>
+                    <p class="text-ink-muted text-sm leading-relaxed">Solusi semua tugas akademikmu. Profesional,
+                        amanah, tepat waktu.</p>
+                </div>
+                <!-- Menu -->
+                <div>
+                    <h4 class="font-semibold text-ink text-sm mb-3">Menu</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#beranda"
+                                class="text-sm text-ink-muted hover:text-accent transition-colors duration-200">Beranda</a>
+                        </li>
+                        <li><a href="#layanan"
+                                class="text-sm text-ink-muted hover:text-accent transition-colors duration-200">Layanan</a>
+                        </li>
+                        <li><a href="#kontak"
+                                class="text-sm text-ink-muted hover:text-accent transition-colors duration-200">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kontak -->
+                <div class="md:col-span-2">
+                    <h4 class="font-semibold text-ink text-sm mb-3">Kontak</h4>
+                    <ul class="space-y-2.5">
+                        <li>
+                            <a href="https://wa.me/628515607056" target="_blank"
+                                class="flex items-center gap-2 text-sm text-ink-muted hover:text-accent transition-colors duration-200">
+                                <svg class="w-4 h-4 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                                0851-5607-0561
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:andisyauki@gmail.com"
+                                class="flex items-center gap-2 text-sm text-ink-muted hover:text-accent transition-colors duration-200">
+                                <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                andisyauki@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-cream-300 pt-6 text-center">
+                <p class="text-xs text-ink-subtle">© 2025 Joki di Andi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================== FLOATING WA BUTTON ======================== -->
+    <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank" id="float-wa" title="Order Sekarang"
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-accent rounded-full shadow-lg flex items-center justify-center hover:bg-accent-dark hover:scale-110 transition-all duration-200 md:hidden">
+        <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+    </a>
+
+    <!-- ======================== JS ======================== -->
+    <script>
+        // Hamburger toggle
+        const btn = document.getElementById('hamburger-menu');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('open');
+            menu.classList.toggle('open');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                btn.classList.remove('open');
+                menu.classList.remove('open');
+            });
+        });
+
+        // Sticky navbar shadow
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+
+</html>
