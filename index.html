@@ -42,6 +42,14 @@
             }
         }
     </script>
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <style>
         html {
             scroll-behavior: smooth;
@@ -51,6 +59,47 @@
             font-family: 'Poppins', sans-serif;
             background-color: #E8F5BD;
             color: #2B2B2B;
+        }
+
+        /* Scroll progress bar */
+        #scroll-progress {
+            transition: width 0.1s ease-out;
+        }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal.reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delay helpers */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+
+        /* Floating WA button pulse */
+        @keyframes pulse-slow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 15px -3px rgba(132, 177, 121, 0.3), 0 4px 6px -2px rgba(132, 177, 121, 0.05);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 20px 25px -5px rgba(132, 177, 121, 0.5), 0 10px 10px -5px rgba(132, 177, 121, 0.1);
+            }
+        }
+        
+        .pulse-btn {
+            animation: pulse-slow 3s infinite ease-in-out;
         }
 
         .nav-link {
@@ -140,6 +189,8 @@
 </head>
 
 <body class="antialiased">
+    <!-- Scroll progress indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[100] w-0"></div>
 
     <!-- ======================== NAVBAR ======================== -->
     <nav id="navbar"
@@ -226,7 +277,7 @@
 
                 <!-- Badge -->
                 <div
-                    class="inline-flex items-center gap-2 bg-cream-200/90 text-accent text-xs font-semibold px-3 py-1.5 rounded-full mb-5 backdrop-blur-sm">
+                    class="reveal inline-flex items-center gap-2 bg-cream-200/90 text-accent text-xs font-semibold px-3 py-1.5 rounded-full mb-5 backdrop-blur-sm">
                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -235,18 +286,18 @@
                 </div>
 
                 <!-- Heading -->
-                <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-4 text-ink">
+                <h1 class="reveal delay-100 text-4xl sm:text-5xl font-bold leading-tight mb-4 text-ink">
                     Tugas numpuk?<br />
                     <span class="text-accent">Serahin aja ke Andi.</span>
                 </h1>
 
                 <!-- Sub -->
-                <p class="text-ink-muted text-sm sm:text-base leading-relaxed mb-8 max-w-sm">
+                <p class="reveal delay-200 text-ink-muted text-sm sm:text-base leading-relaxed mb-8 max-w-sm">
                     Joki di Andi siap membantu semua tugasmu dengan hasil berkualitas, tepat waktu, dan pastinya amanah.
                 </p>
 
                 <!-- Buttons -->
-                <div class="flex flex-row gap-3 flex-wrap">
+                <div class="reveal delay-300 flex flex-row gap-3 flex-wrap">
                     <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
                         class="btn-primary bg-accent text-white font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2 text-sm shadow-md">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -259,7 +310,7 @@
             </div>
 
             <!-- Feature pills — inside section, bottom -->
-            <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-5 w-full max-w-lg">
+            <div class="reveal delay-400 mt-10 flex flex-col sm:flex-row gap-3 sm:gap-5 w-full max-w-lg">
                 <div class="flex items-center gap-2">
                     <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
                         <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2"
@@ -296,12 +347,10 @@
         </div>
     </section>
 
-
-
     <!-- ======================== LAYANAN ======================== -->
     <section id="layanan" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-cream-50">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <span class="text-accent text-xs font-semibold tracking-wider uppercase">✦ Layanan Kami</span>
                 <h2 class="text-3xl sm:text-4xl font-bold text-ink mt-2 mb-3">Semua Tugas, Semua Bisa</h2>
                 <p class="text-ink-muted max-w-xl mx-auto text-sm sm:text-base">Berbagai jenis tugas akademik kami
@@ -310,7 +359,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <!-- Makalah -->
-                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                <div class="reveal card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
                     <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -323,7 +372,7 @@
                         akademik berkualitas.</p>
                 </div>
                 <!-- PPT -->
-                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                <div class="reveal delay-100 card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
                     <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -336,7 +385,7 @@
                         tampil.</p>
                 </div>
                 <!-- Coding -->
-                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                <div class="reveal delay-200 card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
                     <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -348,8 +397,8 @@
                     <p class="text-ink-muted text-sm leading-relaxed">Tugas pemrograman, script, web, android, dan
                         lainnya.</p>
                 </div>
-                <!-- Desain -->
-                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                <!-- Ms Word -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
                     <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -357,12 +406,11 @@
                                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="font-semibold text-base text-ink mb-1.5">Desain</h3>
-                    <p class="text-ink-muted text-sm leading-relaxed">Desain grafis, poster, infografis, dan kebutuhan
-                        desain.</p>
+                    <h3 class="font-semibold text-base text-ink mb-1.5">Ms Word</h3>
+                    <p class="text-ink-muted text-sm leading-relaxed">Jasa ketik word dan merapihkan word</p>
                 </div>
                 <!-- Jurnal -->
-                <div class="card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                <div class="reveal delay-100 card-hover bg-white rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
                     <div class="w-12 h-12 bg-cream-200 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -375,7 +423,7 @@
                         ilmiah.</p>
                 </div>
                 <!-- Lainnya -->
-                <div class="card-hover bg-cream-200 rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
+                <div class="reveal delay-200 card-hover bg-cream-200 rounded-2xl p-6 border border-cream-300 shadow-sm cursor-default">
                     <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" stroke-width="1.8"
                             viewBox="0 0 24 24">
@@ -389,7 +437,7 @@
                 </div>
             </div>
 
-            <div class="text-center mt-8">
+            <div class="text-center mt-8 reveal">
                 <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank"
                     class="btn-primary inline-flex items-center gap-2 bg-accent text-white font-semibold px-7 py-3 rounded-full text-sm">
                     Lihat Semua Layanan
@@ -404,7 +452,7 @@
     <!-- ======================== STATISTIK ======================== -->
     <section id="harga" class="py-14 px-4 sm:px-6 lg:px-8 bg-cream-100">
         <div class="max-w-5xl mx-auto">
-            <div class="bg-cream-200 rounded-3xl px-6 py-10 shadow-sm border border-cream-300">
+            <div class="reveal bg-cream-200 rounded-3xl px-6 py-10 shadow-sm border border-cream-300">
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y-0">
                     <div class="text-center px-4 py-2 stat-item">
                         <div class="w-10 h-10 bg-accent/15 rounded-xl flex items-center justify-center mx-auto mb-2">
@@ -459,7 +507,7 @@
     <!-- ======================== CTA WHATSAPP ======================== -->
     <section id="kontak" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-accent rounded-3xl px-8 py-12 md:py-16 text-center shadow-lg relative overflow-hidden">
+            <div class="reveal bg-accent rounded-3xl px-8 py-12 md:py-16 text-center shadow-lg relative overflow-hidden">
                 <!-- Decorative -->
                 <div
                     class="absolute top-0 left-0 w-48 h-48 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none">
@@ -468,8 +516,12 @@
                     class="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/4 translate-y-1/4 pointer-events-none">
                 </div>
 
-                <span class="text-amber-200 text-xs font-semibold tracking-wider uppercase mb-4 block">⏰ Jangan Tunda
-                    Lagi</span>
+                <span class="inline-flex items-center gap-1.5 text-amber-200 text-xs font-semibold tracking-wider uppercase mb-4">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    Jangan Tunda Lagi
+                </span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug mb-4">
                     Deadline mepet? Tenang,<br />
                     <span class="text-amber-200">Joki di Andi siap bantu.</span>
@@ -549,7 +601,7 @@
 
     <!-- ======================== FLOATING WA BUTTON ======================== -->
     <a href="https://forms.gle/AWQnVRoQFMLUfMMe8" target="_blank" id="float-wa" title="Order Sekarang"
-        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-accent rounded-full shadow-lg flex items-center justify-center hover:bg-accent-dark hover:scale-110 transition-all duration-200 md:hidden">
+        class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-accent rounded-full shadow-lg flex items-center justify-center hover:bg-accent-dark hover:scale-110 transition-all duration-200 md:hidden pulse-btn">
         <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
             <path
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -582,6 +634,62 @@
             } else {
                 navbar.classList.remove('shadow-md');
             }
+        });
+
+        // Scroll progress bar
+        const progressBar = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (windowHeight > 0) {
+                const scrollPercentage = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrollPercentage + '%';
+            }
+        });
+
+        // Intersection Observer for scroll reveal animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // ScrollSpy active link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPos = window.scrollY + 200; // offset for triggers
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-accent', 'font-semibold');
+                link.classList.add('text-ink-muted');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-ink-muted');
+                    link.classList.add('text-accent', 'font-semibold');
+                }
+            });
         });
     </script>
 </body>
